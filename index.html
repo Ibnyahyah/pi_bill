@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/white-uicss@1.0.3/white-uicss.min.css">
     <title>Test Pi</title>
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-    <script>Pi.init({ version: "2.0" })</script>
-
+    <script>Pi.init({ version: "2.0", sandbox: true })</script>
     <style>
         .sub-container {
             background-image: url('./images/bg.svg');
@@ -22,7 +21,7 @@
 <body>
 
     <div class="container">
-        <header class="bg-purple p-1 text-white text-center font-bold">Welcome to Pi Bill</header>
+        <header class="bg-purple p-1 text-white text-center font-bold">Welcome to Tryan Bill</header>
         <div class="sub-container">
             <div class="row align-items-center" style="height: 70vh;">
                 <div class="col-6-sm col-6-md col-4-lg col-4-xl m-auto">
@@ -44,7 +43,7 @@
                         <ul>
                             <li class="font-bold mb-1">Tools</li>
                             <li><a href="#">Faqs</a></li>
-                            <li><a href="#">How Pi Bills Works.</a></li>
+                            <li><a href="#">How Tryan Bills Works.</a></li>
                         </ul>
                     </div>
                     <div class="col-4-sm col-4-md col-4-lg">
@@ -57,7 +56,7 @@
                 </div>
                 <hr class="mt-2 mb-1" />
                 <p class="text-center">
-                    <script>document.write(new Date().getFullYear())</script> - Pi Bill
+                    <script>document.write(new Date().getFullYear())</script> - Tryan Bill
                 </p>
             </div>
         </footer>
@@ -67,7 +66,7 @@
         const _user = document.getElementById('user');
 
         // Authenticate the user, and get permission to request payments from them:
-        const scopes = ['payments'];
+        const scopes = ["sandbox", 'payments'];
 
         // Read more about this callback in the SDK reference:
         function onIncompletePaymentFound(payment) { /* ... */ };
@@ -95,6 +94,11 @@
             //     onError: function (error, payment) { /* ... */ },
             // });
         }
+        const me = fetch('https://api.minepi.com/v2/me', { headers: { 'Authorization': 'Bearer bhnfb8fqjvkzjxpsk9bchxldk3hptgamrz6hdcfy0z6llj4cdfjxdkkwthfpxb0h' } }).then((data) => console.log(data));
+
+        console.log(me)
+
+
     </script>
 </body>
 
