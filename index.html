@@ -21,7 +21,10 @@
 <body>
 
     <div class="container">
-        <header class="bg-purple p-1 text-white text-center font-bold">Welcome to Tryan Bill</header>
+        <header class="bg-purple p-1 text-white font-bold display-f justify-content-space-between">
+            <h2>Welcome to Tryan Bill</h2>
+            <p id="_user"></p>
+        </header>
         <div class="sub-container">
             <div class="row align-items-center" style="height: 70vh;">
                 <div class="col-6-sm col-6-md col-4-lg col-4-xl m-auto">
@@ -71,29 +74,16 @@
         // Read more about this callback in the SDK reference:
         function onIncompletePaymentFound(payment) { /* ... */ };
 
-        const Auth = async () => {
+        window.addEventListener('onload', async () => {
             const authRes = await window.Pi.authenticate(scopes, onIncompletePaymentFound);
             try {
-                console.log(authRes)
+                document.getElementById('_user').innerHTML = "Connected";
+                console.log(authRes, "Connected")
             } catch (error) {
-                console.log(error)
+                console.log(error, "Failed to authenticate");
+                alert("unable to connect");
             }
-
-            // Pi.createPayment({
-            //     // Amount of π to be paid:
-            //     amount: 3.14,
-            //     // An explanation of the payment - will be shown to the user:
-            //     memo: "...", // e.g: "Digital kitten #1234",
-            //     // An arbitrary developer-provided metadata object - for your own usage:
-            //     metadata: { /* ... */ }, // e.g: { kittenId: 1234 }
-            // }, {
-            //     // Callbacks you need to implement - read more about those in the detailed docs linked below:
-            //     onReadyForServerApproval: function (paymentId) { /* ... */ },
-            //     onReadyForServerCompletion: function (paymentId, txid) { /* ... */ },
-            //     onCancel: function (paymentId) { /* ... */ },
-            //     onError: function (error, payment) { /* ... */ },
-            // });
-        }
+        })
 
 
     </script>
