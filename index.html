@@ -66,7 +66,7 @@
         const _user = document.getElementById('user');
 
         // Authenticate the user, and get permission to request payments from them:
-        const scopes = ["sandbox", 'payments'];
+        const scopes = ["username", 'payments'];
 
         // Read more about this callback in the SDK reference:
         function onIncompletePaymentFound(payment) { /* ... */ };
@@ -94,9 +94,6 @@
             //     onError: function (error, payment) { /* ... */ },
             // });
         }
-        const me = fetch('https://api.minepi.com/v2/me', { headers: { 'Authorization': 'Bearer bhnfb8fqjvkzjxpsk9bchxldk3hptgamrz6hdcfy0z6llj4cdfjxdkkwthfpxb0h' } }).then((data) => console.log(data));
-
-        console.log(me)
 
 
     </script>
